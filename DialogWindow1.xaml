@@ -1,0 +1,15 @@
+﻿<Window x:Class="shvFT991A.DialogWindow1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:shvFT991A"
+        mc:Ignorable="d"
+        Title="DialogWindow1" Height="450" Width="800" WindowStyle="ToolWindow">
+    <Grid>
+        <Button x:Name="ButtonOK" Content="OK" HorizontalAlignment="Right" Width="80" Margin="0,0,232,20" Click="ButtonOK_Click" Height="20" VerticalAlignment="Bottom"/>
+        <Button x:Name="ButtonCancel" Content="キャンセル" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="80" Margin="0,0,72,20" Click="ButtonCancel_Click"/>
+        <TextBlock x:Name="TectBlockClickButton" Margin="80,60,72,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="300" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"/>
+
+    </Grid>
+</Window>

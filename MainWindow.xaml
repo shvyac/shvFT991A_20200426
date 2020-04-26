@@ -1,0 +1,546 @@
+﻿<Window x:Class="shvFT991A.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:shvFT991A"
+        mc:Ignorable="d"
+        Title="shvFT991A" Height="747" Width="1204" WindowStartupLocation="CenterScreen" Background="{x:Null}">
+    <Grid Margin="0,0,2,-6" Background="#FF2C73D2">
+        <TabControl x:Name="TabControlMain" SelectionChanged="TabControlMain_SelectionChanged" Grid.ColumnSpan="8" Grid.RowSpan="3">
+            <TabItem x:Name="TabItemFT991A" Header="shvFT991A" Background="#FF2C73D2" Foreground="Black" Width="100">
+                <Grid Background="#FF2C73D2" Margin="0,0,0,-1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="45*"/>
+                        <RowDefinition Height="39*"/>
+                        <RowDefinition Height="28*"/>
+                        <RowDefinition Height="27*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="247*"/>
+                        <ColumnDefinition Width="200*"/>
+                        <ColumnDefinition Width="200*"/>
+                        <ColumnDefinition Width="100*"/>
+                        <ColumnDefinition Width="100*"/>
+                        <ColumnDefinition Width="100*"/>
+                        <ColumnDefinition Width="100*"/>
+                        <ColumnDefinition Width="100*"/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel HorizontalAlignment="Left" Margin="5,50,0,5" Width="240" Grid.ColumnSpan="2" Grid.Column="1">
+                        <Button x:Name="buttonDateTime" Content="Date Time" HorizontalAlignment="Left" Margin="0,0,-25,0" VerticalAlignment="Top" Width="240" Height="40" Background="#7FDDDDDD" Click="ButtonDateTime_Click" FontSize="20"/>
+                        <TextBox x:Name="textboxFreqVFOA" HorizontalAlignment="Left" Height="40" Margin="0,0,-25,0" TextWrapping="Wrap" Text="VFO-A" VerticalAlignment="Top" Width="240" TextAlignment="Right" FontSize="24" Background="{x:Null}" Foreground="White"/>
+                        <TextBox x:Name="textboxFreqVFOB" HorizontalAlignment="Left" Height="40" TextWrapping="Wrap" Text="VFO-B" VerticalAlignment="Top" Width="240" TextAlignment="Right" FontSize="24" Margin="0,0,-25,0" Background="{x:Null}" Foreground="White"/>
+                        <ProgressBar HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="240" Margin="0,0,-25,0" Value="75" Cursor="Hand" Foreground="#FF5159FD"/>
+                    </StackPanel>
+                    <TextBox HorizontalAlignment="Left" Height="20" Margin="6,34,0,0" TextWrapping="Wrap" Text="AF GAIN" VerticalAlignment="Top" TextAlignment="Center" BorderBrush="Black" Background="#FFC7C7C7" Width="80" Grid.Column="7" Grid.Row="2"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="171,68,0,0" TextWrapping="Wrap" Text="{Binding Value, ElementName=AF_GAIN}" VerticalAlignment="Top" Height="32" Width="6" Grid.Row="2"/>
+                    <TextBox HorizontalAlignment="Left" Height="20" Margin="25,34,0,0" TextWrapping="Wrap" Text="RF GAIN" VerticalAlignment="Top" TextAlignment="Center" BorderBrush="Black" TextChanged="TextBox_TextChanged" Background="#FFC7C7C7" Width="80" Grid.Column="6" Grid.ColumnSpan="2" Grid.Row="2"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="171,82,0,0" TextWrapping="Wrap" Text="{Binding Value, ElementName=AF_GAIN}" VerticalAlignment="Top" Height="32" Width="6" Grid.Row="1"/>
+                    <TextBox Height="20" Margin="5,25,5,0" TextWrapping="Wrap" Text="BAND SELECTION" VerticalAlignment="Top" TextAlignment="Center" BorderBrush="Black" Background="#FFCDCDCD" Grid.ColumnSpan="3" Grid.Column="3"/>
+                    <CheckBox Content="FAST VFO-A" HorizontalAlignment="Left" Margin="100,56,0,0" VerticalAlignment="Top" Height="15" Width="100" Grid.Column="2"/>
+                    <Grid Margin="191,11,65,44" Grid.ColumnSpan="4" Grid.Row="1"/>
+                    <StackPanel Margin="140,115,5,5" Background="#FFE0E0E0" Grid.Column="2">
+                        <RadioButton Content="ID"/>
+                        <RadioButton Content="SWR"/>
+                        <RadioButton Content="VDD&#xA;" Height="15"/>
+                        <RadioButton Content="PO"/>
+                        <RadioButton Content="ALC"/>
+                        <RadioButton Content="COMP" Margin="0,0,-9,0" Height="18"/>
+                    </StackPanel>
+                    <TextBox HorizontalAlignment="Left" Height="20" Margin="10,35,0,0" TextWrapping="Wrap" Text="CLAR VFO-B" VerticalAlignment="Top" TextAlignment="Center" BorderBrush="Black" TextChanged="TextBox_TextChanged" Background="#FFC7C7C7" Width="80" Grid.Column="5" Grid.Row="2"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="171,122,0,0" TextWrapping="Wrap" Text="{Binding Value, ElementName=AF_GAIN}" VerticalAlignment="Top" Height="32" Width="6"/>
+                    <StackPanel Grid.Row="3" Margin="5,5,5,25">
+                        <Button Content="Channel Up" FontSize="16" Background="White" Height="34"/>
+                        <Button Content="Channel Down" FontSize="16" Background="White" Height="34"/>
+                        <Button Content="Channel Clear" FontSize="16" Background="White" Height="34"/>
+                    </StackPanel>
+                    <Slider HorizontalAlignment="Left" VerticalAlignment="Top" Height="150" Orientation="Vertical" Width="80" TickPlacement="TopLeft" Margin="10,84,0,0" Grid.Column="5" Grid.Row="2" Grid.RowSpan="2"/>
+                    <Slider HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Vertical" Height="150" Width="80" TickPlacement="TopLeft" Margin="25,84,0,0" Grid.Column="6" Grid.ColumnSpan="2" Grid.Row="2" Grid.RowSpan="2"/>
+                    <Slider Orientation="Vertical" Height="150" TickPlacement="TopLeft" Width="80" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="6,84,0,0" Grid.Column="7" Grid.Row="2" Grid.RowSpan="2"/>
+                    <TextBox x:Name="textboxVFOBMode" HorizontalAlignment="Left" Height="20" Margin="171,135,0,0" TextWrapping="Wrap" Text="VFOBMode" VerticalAlignment="Top" Width="80" Background="{x:Null}"/>
+                    <TextBox x:Name="textboxVFOAMode" HorizontalAlignment="Left" Height="20" Margin="170,96,0,0" TextWrapping="Wrap" Text="VFOAMode" VerticalAlignment="Top" Width="80" Background="{x:Null}"/>
+                    <Menu VerticalAlignment="Top" Margin="1,0" Grid.ColumnSpan="8" Height="20">
+                        <MenuItem Header="File" HorizontalAlignment="Left">
+                            <MenuItem Header="Read" HorizontalAlignment="Left" Height="36" Width="140"/>
+                            <MenuItem Header="Write" HorizontalAlignment="Left" Height="40" Width="140"/>
+                        </MenuItem>
+                        <MenuItem Header="Band" HorizontalAlignment="Left">
+                            <MenuItem Header="MenuItem" HorizontalAlignment="Left" Height="100" Width="140"/>
+                            <MenuItem Header="MenuItem" HorizontalAlignment="Left" Height="100" Width="140"/>
+                        </MenuItem>
+                        <MenuItem Header="Mode" HorizontalAlignment="Left">
+                            <MenuItem Header="MenuItem" HorizontalAlignment="Left" Height="100" Width="140"/>
+                            <MenuItem Header="MenuItem" HorizontalAlignment="Left" Height="100" Width="140"/>
+                        </MenuItem>
+                        <MenuItem Header="Help" HorizontalAlignment="Left"/>
+                    </Menu>
+                    <StackPanel VerticalAlignment="Top" Margin="5,55,5,0" Grid.Column="7" Grid.RowSpan="2">
+                        <Button x:Name="ButtonUSB" Content="USB" VerticalAlignment="Top" Background="#7FDDDDDD" Click="ButtonUSB_Click" FontSize="20" Height="40"/>
+                        <Button x:Name="ButtonCWU" Content="CWU" VerticalAlignment="Top" Background="#7FDDDDDD" Click="ButtonCWU_Click" FontSize="20" Height="40"/>
+                        <Button x:Name="ButtonDATAU" Content="DATA U" VerticalAlignment="Top" Background="#7FDDDDDD" Click="ButtonDATAU_Click" FontSize="20" Height="40"/>
+                        <Button x:Name="ButtonRTTYU" Content="RTTY U" VerticalAlignment="Top" Background="#7FDDDDDD" Click="ButtonRTTYU_Click" FontSize="20" Height="40"/>
+                        <Button x:Name="ButtonAM" Content="AM" VerticalAlignment="Top" Background="#7FDDDDDD" Click="ButtonAM_Click" FontSize="20" Height="40"/>
+                        <Button x:Name="ButtonAMN" Content="AMN" VerticalAlignment="Top" Background="#7FDDDDDD" Click="ButtonAMN_Click" FontSize="20" Height="40"/>
+                    </StackPanel>
+                    <StackPanel Margin="5,55,5,0" VerticalAlignment="Top" Grid.Column="6" Grid.RowSpan="2">
+                        <Button x:Name="ButtonLSB" Content="LSB" VerticalAlignment="Top" Background="#7FDDDDDD" Click="ButtonLSB_Click" FontSize="20" Margin="0" Height="40"/>
+                        <Button x:Name="ButtonCWL" Content="CWL" VerticalAlignment="Top" Background="#7FDDDDDD" Click="ButtonCWL_Click" FontSize="20" Margin="0" Height="40"/>
+                        <Button x:Name="ButtonDATAL" Content="DATA L" VerticalAlignment="Top" Background="#7FDDDDDD" Click="ButtonDATAL_Click" FontSize="20" Margin="0" Height="40"/>
+                        <Button x:Name="ButtonRTTYL" Content="RTTY L" VerticalAlignment="Top" Background="#7FDDDDDD" Click="ButtonRTTYL_Click" FontSize="20" Margin="0" Height="40"/>
+                        <Button x:Name="ButtonFM" Content="FM" VerticalAlignment="Top" Background="#7FDDDDDD" Click="ButtonFM_Click" FontSize="20" Margin="0" Height="40"/>
+                        <Button x:Name="ButtonFMN" Content="FMN" VerticalAlignment="Top" Background="#7FDDDDDD" Click="ButtonFMN_Click" FontSize="20" Margin="0" Height="40"/>
+                        <Button x:Name="ButtonDATAF" Content="DATA F" VerticalAlignment="Top" Background="#7FDDDDDD" Click="ButtonDATAF_Click" FontSize="20" Margin="0" Height="40"/>
+                        <Button x:Name="ButtonC4FM" Content="C4FM" VerticalAlignment="Top" Background="#7FDDDDDD" Click="ButtonC4FM_Click" FontSize="20" Height="40" Margin="0"/>
+                    </StackPanel>
+                    <StackPanel Margin="5,56,5,0" VerticalAlignment="Top" Grid.Column="5" Grid.RowSpan="2">
+                        <Button x:Name="Button144MHz" Content="144" VerticalAlignment="Top" Background="White" Click="Button144MHz_Click" FontSize="20" Height="40"/>
+                        <Button x:Name="Button430MHz" Content="430" VerticalAlignment="Top" Background="White" Click="Button430MHz_Click" FontSize="20" Height="40"/>
+                        <Button x:Name="ButtonGENBand" Content="GEN" VerticalAlignment="Top" Background="#7FDDDDDD" Click="ButtonGENBand_Click" FontSize="20" Height="40"/>
+                        <Button x:Name="ButtonMWBand" Content="MW" VerticalAlignment="Top" Background="#7FDDDDDD" Click="ButtonMWBand_Click" FontSize="20" Height="40"/>
+                        <Button x:Name="ButtonAirBand" Content="AIR" VerticalAlignment="Top" Background="#7FDDDDDD" Click="ButtonAirBand_Click" FontSize="20" Height="40"/>
+                    </StackPanel>
+                    <StackPanel Margin="5,56,5,0" VerticalAlignment="Top" Grid.Column="4" Grid.RowSpan="2">
+                        <Button x:Name="Button18MHz" Content="18" VerticalAlignment="Top" Background="White" Click="Button18MHz_Click" FontSize="20" Height="40"/>
+                        <Button x:Name="Button21MHz" Content="21" VerticalAlignment="Top" Background="White" Click="Button21MHz_Click" FontSize="20" Height="40"/>
+                        <Button x:Name="Button24MHz" Content="24.5" VerticalAlignment="Top" Background="White" Click="Button24MHz_Click" FontSize="20" Height="40"/>
+                        <Button x:Name="Button28MHz" Content="28" VerticalAlignment="Top" Background="White" Click="Button28MHz_Click" FontSize="20" Height="40"/>
+                        <Button x:Name="Button50MHz" Content="50" VerticalAlignment="Top" Background="White" Click="Button50MHz_Click" FontSize="20" Height="40"/>
+                    </StackPanel>
+                    <StackPanel Margin="5,56,5,0" VerticalAlignment="Top" Grid.Column="3" Grid.RowSpan="2">
+                        <Button x:Name="button1800KHz" Content="1.8" VerticalAlignment="Top" Background="White" Click="Button1800KHz_Click" FontSize="20" Height="40"/>
+                        <Button x:Name="button3500KHz" Content="3.5" VerticalAlignment="Top" Background="White" Click="Button3500KHz_Click" FontSize="20" Height="40"/>
+                        <Button x:Name="Button07MHz" Content="7" VerticalAlignment="Top" Background="White" Click="Button07MHz_Click" FontSize="20" Height="40"/>
+                        <Button x:Name="Button10MHz" Content="10" VerticalAlignment="Top" Background="White" Click="Button10MHz_Click" FontSize="20" Height="40"/>
+                        <Button x:Name="Button14MHz" Content="14" VerticalAlignment="Top" Background="White" Click="Button14MHz_Click" FontSize="20" Height="40"/>
+                    </StackPanel>
+                    <StackPanel HorizontalAlignment="Left" Margin="44,50,0,5" Width="40" Grid.Column="2">
+                        <Button x:Name="buttonFreqCopyAtoB" Content="v" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Height="60" Background="#7FDDDDDD" FontSize="16" Click="ButtonFreqCopyAtoB_Click"/>
+                        <Button x:Name="buttonFreqSwap" Content="Swap" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Height="40" Background="#7FDDDDDD" Click="ButtonFreqSwap_Click"/>
+                        <Button x:Name="buttonFreqCopyBtoA" Content="^" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Height="60" Background="#7FDDDDDD" FontSize="16" Click="ButtonFreqCopyBtoA_Click"/>
+                    </StackPanel>
+                    <StackPanel Margin="5,53,5,0" VerticalAlignment="Top" Grid.ColumnSpan="3" Grid.Column="3" Grid.Row="1">
+                        <Button Content="BAND UP" VerticalAlignment="Top" Height="40" Click="Button_Click" Background="White" FontSize="16"/>
+                        <Button Content="BAND DOWN" VerticalAlignment="Top" Height="40" Click="Button_Click" Background="White" FontSize="16"/>
+                    </StackPanel>
+                    <TextBox Height="20" Margin="5,25,5,0" TextWrapping="Wrap" Text="MODE SELECTION" VerticalAlignment="Top" TextAlignment="Center" BorderBrush="Black" Background="#FFCDCDCD" Grid.ColumnSpan="2" Grid.Column="6"/>
+                    <StackPanel HorizontalAlignment="Left" Margin="131,96,0,0" VerticalAlignment="Top" Height="99" Width="40">
+                        <Button x:Name="buttonFreqCopyMtoVFO" Content="&gt;" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Height="39" Background="#7FDDDDDD" FontSize="16" Click="ButtonFreqCopyMtoVFO_Click"/>
+                        <Button x:Name="buttonFreqCopyVFOtoM" Content="&lt;" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Height="40" Background="#7FDDDDDD" FontSize="16" Click="ButtonFreqCopyVFOtoM_Click"/>
+                    </StackPanel>
+                    <StackPanel VerticalAlignment="Top" Grid.Column="2" Margin="5,15,5,0" Grid.Row="1" Grid.RowSpan="2">
+                        <Button Content="ATT Attenuator" FontSize="16" Background="White" Height="25"/>
+                        <Button Content="IPO Intercept Point Opt." FontSize="16" Background="White" Height="25"/>
+                        <Button Content="NB Noise Blanker" FontSize="16" Background="White" Height="25"/>
+                        <Button Content="CONTOUR" FontSize="16" Background="White" Height="25"/>
+                        <Button Content="SHIFT" FontSize="16" Background="White" Height="25"/>
+                        <Button Content="WIDTH" FontSize="16" Background="White" Height="25"/>
+                        <Button Content="NAR" FontSize="16" Background="White" Height="25"/>
+                        <Button Content="NOTCH" FontSize="16" Background="White" Height="25"/>
+                        <Button Content="DNR Digi. Noise Redu." FontSize="16" Background="White" Height="25"/>
+                        <Button Content="DNF Digi. Notch Filter" FontSize="16" Background="White" Height="25"/>
+                        <Button Content="AGC Auto. Gain Cont." FontSize="16" Background="White" Height="25"/>
+                        <Button Content="APF Audio Peak Filter" FontSize="16" Background="White" Click="Button_Click_2" Height="25"/>
+                    </StackPanel>
+                    <StatusBar Height="20" VerticalAlignment="Bottom" BorderBrush="White" Margin="0" Grid.ColumnSpan="8" Grid.Row="3">
+                        <StatusBar.Background>
+                            <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.GradientInactiveCaptionColorKey}}"/>
+                        </StatusBar.Background>
+                    </StatusBar>
+                    <StackPanel Margin="5,15,5,0" VerticalAlignment="Top" Grid.Column="1" Grid.Row="1" Grid.RowSpan="3">
+                        <Button Content="BREAK IN" Click="Button_Click" Background="White" FontSize="16" Height="25"/>
+                        <Button Content="MANUAL NOTCH" Click="Button_Click" Background="White" FontSize="16" Height="25"/>
+                        <Button Content="NOTCH" Click="Button_Click" Background="White" FontSize="16" Height="25"/>
+                        <Button Content="AGC" Click="Button_Click" Background="White" FontSize="16" Height="25"/>
+                        <Button Content="MIC GAIN" Click="Button_Click" Background="White" FontSize="16" Height="25"/>
+                        <Button Content="MONI LEVEL" Click="Button_Click" Background="White" FontSize="16" Height="25"/>
+                        <Button Content="PROC Speech Proc." Click="Button_Click" Background="White" FontSize="16" Height="25"/>
+                        <Button Content="VOX" Click="Button_Click" Background="White" FontSize="16" Height="25"/>
+                        <Button Content="MONITOR" Click="Button_Click" Background="White" FontSize="16" Height="25"/>
+                        <Button Content="TX CLAR" Click="Button_Click" Background="White" FontSize="16" Height="25"/>
+                        <Button Content="SPLIT" Click="Button_Click" Background="White" FontSize="16" Height="25"/>
+                        <Button Content="CW REVERSE" Click="Button_Click" Background="White" FontSize="16" Height="25"/>
+                        <Button Content="SPEED WPM" Click="Button_Click" Background="White" FontSize="16" Height="25"/>
+                        <Button Content="CW BK-IN DELAY" Click="Button_Click" Background="White" FontSize="16" Height="25"/>
+                        <Button Content="CW PITCH" Click="Button_Click" Background="White" FontSize="16" Height="25"/>
+                        <Button Content="Contest Memory Keyer" Click="Button_Click" Background="White" FontSize="16" Height="25"/>
+                    </StackPanel>
+                    <DataGrid x:Name="DataGridMemoryChannel" Margin="5,50,5,5" AutoGeneratedColumns="DataGridMemoryChannel_AutoGeneratedColumns" AutoGeneratingColumn="DataGridMemoryChannel_AutoGeneratingColumn" Grid.RowSpan="3"/>
+                    <TextBox HorizontalAlignment="Left" Height="20" TextWrapping="Wrap" Text="Channel Info." VerticalAlignment="Top" Width="120" TextAlignment="Center" Margin="5,25,0,0" Background="{x:Null}" BorderBrush="{x:Null}">
+                        <TextBox.Foreground>
+                            <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ControlColorKey}}"/>
+                        </TextBox.Foreground>
+                    </TextBox>
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="TabItemHAMLog" Header="shvQSOLog" Background="#FF538DEF" Width="100">
+                <Grid Background="#FF538DEF">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="221*"/>
+                        <ColumnDefinition Width="373*"/>
+                    </Grid.ColumnDefinitions>
+                    <TabControl x:Name="TabControlHAMLog" SelectionChanged="TabControlHAMLog_SelectionChanged" Grid.ColumnSpan="2">
+                        <TabItem Header="My Log" Background="#FF538DEF">
+                            <Grid Background="#FFE5E5E5">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="59*"/>
+                                    <ColumnDefinition Width="138*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid Background="#FF538DEF" Grid.ColumnSpan="2">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="33*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <ListView x:Name="ListViewMyLogMSG" Height="100" Margin="594,10,10,0" VerticalAlignment="Top">
+                                        <ListView.View>
+                                            <GridView>
+                                                <GridViewColumn/>
+                                            </GridView>
+                                        </ListView.View>
+                                    </ListView>
+                                    <DataGrid x:Name="DataGridMyLog" Margin="10,115,10,25" AutoGeneratingColumn="DataGridMyLog_AutoGeneratingColumn" AutoGeneratedColumns="DataGridMyLog_AutoGeneratedColumns"/>
+                                    <Button x:Name="ButtonMyLogImportFrom" Content="Import Log data from" Margin="17,20,0,0" VerticalAlignment="Top" Click="ButtonMyLogImportFrom_Click" Height="22" HorizontalAlignment="Left" Width="165"/>
+                                    <ComboBox x:Name="ComboBoxMyLogFileName" HorizontalAlignment="Left" Margin="17,47,0,0" VerticalAlignment="Top" Width="457" Loaded="ComboBoxMyLogFileName_Loaded" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
+                                    <StatusBar Height="25" VerticalAlignment="Bottom" Grid.ColumnSpan="2" Background="#FF538DEF">
+                                        <TextBlock x:Name="TextBlockMyLogStatusBar" TextWrapping="Wrap" Text="TextBlock" Width="249"/>
+                                    </StatusBar>
+                                    <Button x:Name="ButtonSelectMylogFile" Content="Select..." HorizontalAlignment="Left" Margin="494,47,0,0" VerticalAlignment="Top" Width="75" Height="22" Click="ButtonSelectMylogFile_Click"/>
+                                    <Button x:Name="ButtonExportCSVfile" Content="Export CSV" HorizontalAlignment="Left" Margin="494,20,0,0" VerticalAlignment="Top" Width="75" Height="22" Click="ButtonExportCSVfile_Click"/>
+                                    <Button x:Name="ButtonMyLogMergeRST" Content="Merge RST into QRZlog" Margin="17,74,0,0" VerticalAlignment="Top" Height="22" HorizontalAlignment="Left" Width="165" Click="ButtonMyLogMergeRST_Click"/>
+                                    <Button x:Name="ButtonCalcGSDistance" Content="Calc Distance" HorizontalAlignment="Left" Margin="194,74,0,0" VerticalAlignment="Top" Width="120" Height="22" Click="ButtonCalcGSDistance_Click"/>
+                                </Grid>
+                            </Grid>
+                        </TabItem>
+                        <TabItem Header="My Contest Log" Background="#FF767CD9">
+                            <Grid Background="#FF767CD9">
+                                <DataGrid x:Name="DataGridMyContestLog" Margin="0,55,0,23" AutoGeneratingColumn="DataGridMyContestLog_AutoGeneratingColumn" AutoGeneratedColumns="DataGridMyContestLog_AutoGeneratedColumns" Grid.ColumnSpan="3"/>
+                                <Button x:Name="ButtonMyContestImportFrom" HorizontalAlignment="Left" Margin="0,14,0,0" VerticalAlignment="Top" Width="180" Height="30" Content="Import from" Click="ButtonMyContestImportFrom_Click" Grid.Column="1" Grid.ColumnSpan="2"/>
+                                <ComboBox x:Name="ComboBoxMyContestImportFile" HorizontalAlignment="Left" Margin="10,14,0,0" VerticalAlignment="Top" Width="205" Height="30" Loaded="ComboBoxMyContestImportFile_Loaded" Grid.Column="2"/>
+                                <ComboBox x:Name="ComboBoxMyContestExportFile" HorizontalAlignment="Left" Margin="445,14,0,0" VerticalAlignment="Top" Width="205" Height="30" Loaded="ComboBoxMyContestExportFile_Loaded" Grid.Column="2"/>
+                                <Button x:Name="ButtonMyContestExportTo" Content="Export to" HorizontalAlignment="Left" Margin="260,14,0,0" VerticalAlignment="Top" Width="180" Height="30" Click="ButtonMyContestExportTo_Click" Grid.Column="2"/>
+                                <Label x:Name="LabelMyContestMSG" Content="Label" HorizontalAlignment="Left" Margin="677,14,0,0" VerticalAlignment="Top" Width="283" Background="White" Grid.Column="2"/>
+                                <StatusBar Height="23" VerticalAlignment="Bottom" Grid.ColumnSpan="3" Background="#FF767CD9">
+                                    <TextBlock x:Name="TextBlockMyContestStatusBar" TextWrapping="Wrap" Text="TextBlock"/>
+                                </StatusBar>
+                            </Grid>
+                        </TabItem>
+                        <TabItem Header="Contest Result" Background="#FF8A6CC1">
+                            <Grid Background="#FF8A6CC1">
+                                <DataGrid x:Name="DataGridContestResult" Margin="0,52,0,35" AutoGeneratingColumn="DataGridContestResult_AutoGeneratingColumn" AutoGeneratedColumns="DataGridContestResult_AutoGeneratedColumns"/>
+                                <Button x:Name="Button2018ALLJA" Content="Read 2018 ALL JA Result" HorizontalAlignment="Left" Margin="144,10,0,0" VerticalAlignment="Top" Width="170" Click="Button2018ALLJA_Click" Height="25"/>
+                                <StatusBar x:Name="StatusBarContestResult" Height="35" VerticalAlignment="Bottom" Background="#FF8A6CC1">
+                                    <Label x:Name="LabelMSG" Content="Label"/>
+                                    <Separator Height="35" Margin="0" VerticalAlignment="Top" Width="41"/>
+                                    <ProgressBar Height="10" Width="100">
+                                        <ProgressBar.Background>
+                                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                                <GradientStop Color="Black" Offset="0"/>
+                                                <GradientStop Color="White" Offset="1"/>
+                                            </LinearGradientBrush>
+                                        </ProgressBar.Background>
+                                    </ProgressBar>
+                                </StatusBar>
+                                <ComboBox x:Name="ComboBoxFileResult" HorizontalAlignment="Left" Margin="334,10,0,0" VerticalAlignment="Top" Width="300" Height="25" Loaded="ComboBoxFileResult_Loaded"/>
+                                <Label x:Name="LabelContestResultMSG" Content="Label" HorizontalAlignment="Left" Margin="679,9,0,0" VerticalAlignment="Top" Width="275" Background="White"/>
+                            </Grid>
+                        </TabItem>
+                        <TabItem Header="soumu.go.jp" Background="#FF945DA7">
+                            <Grid Background="#FF945DA7">
+                                <DataGrid x:Name="DataGridSoumuGoJp" Margin="10,94,10,37" Grid.ColumnSpan="3" AutoGeneratedColumns="DataGridSoumuGoJp_AutoGeneratedColumns" AutoGeneratingColumn="DataGridSoumuGoJp_AutoGeneratingColumn"/>
+                                <StatusBar x:Name="StatusBarSoumu" Height="37" VerticalAlignment="Bottom" Grid.ColumnSpan="3" Background="#FF945DA7">
+                                    <Label x:Name="LabelStatusBarSoumu" Content="Label"/>
+                                </StatusBar>
+                                <Button x:Name="ButtonReadSoumuSerial" Content="Read Soumu Serial" HorizontalAlignment="Left" Margin="50,28,0,0" VerticalAlignment="Top" Width="250" Click="ButtonReadSoumuSerial_Click" Grid.Column="1"/>
+                                <StackPanel HorizontalAlignment="Left" Height="55" Margin="149,10,0,0" VerticalAlignment="Top" Width="100" Orientation="Horizontal" Grid.Column="2">
+                                    <TextBox x:Name="TextBoxSoumuParseNumber" TextWrapping="Wrap" Text="{Binding Value, ElementName=ScrollBarParseNumber}" Width="80" TextAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                                    <ScrollBar x:Name="ScrollBarParseNumber" Width="Auto" Maximum="100" Minimum="1" LargeChange="10" SmallChange="1" Value="10">
+                                        <ScrollBar.LayoutTransform>
+                                            <TransformGroup>
+                                                <ScaleTransform/>
+                                                <SkewTransform/>
+                                                <RotateTransform Angle="180"/>
+                                                <TranslateTransform/>
+                                            </TransformGroup>
+                                        </ScrollBar.LayoutTransform>
+                                    </ScrollBar>
+                                </StackPanel>
+                                <Label x:Name="LabelNumberOfSoumu" Content="Label" HorizontalAlignment="Left" Margin="375,25,0,0" VerticalAlignment="Top" Width="255" Foreground="Black" Background="#FFF9F6F6" Grid.Column="2"/>
+                            </Grid>
+                        </TabItem>
+                        <TabItem Header="QRZ.CallBook" Background="#FF97508E">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="185*"/>
+                                    <RowDefinition Height="445*"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="157*"/>
+                                    <ColumnDefinition Width="139*"/>
+                                    <ColumnDefinition Width="146*"/>
+                                    <ColumnDefinition Width="149*"/>
+                                </Grid.ColumnDefinitions>
+                                <Button x:Name="ButtonSetLoginInfo" Content="Set Login Info" Margin="17,10,21,0" VerticalAlignment="Top" Click="ButtonSetLoginInfo_Click" Grid.Column="3" Height="20"/>
+                                <Button x:Name="ButtonGetCallbookInfo" Content="Get Callbook info" Margin="17,41,21,0" VerticalAlignment="Top" Grid.Column="3" Height="20"/>
+                                <TextBox x:Name="TextBoxSearchCallsign" Height="23" Margin="18,16,0,0" TextWrapping="Wrap" Text="JA1AAA" VerticalAlignment="Top" TextAlignment="Center" HorizontalAlignment="Left" Width="120"/>
+                                <Button x:Name="ButtonQRZSearch" Content="Search" Margin="194,16,0,0" VerticalAlignment="Top" Click="ButtonGetPSKxml_Click" Height="23" HorizontalAlignment="Left" Width="75"/>
+                                <TextBlock x:Name="TextBlockVersion" Margin="39,57,45,0" TextWrapping="Wrap" Text="TextBlockVersion" VerticalAlignment="Top" Height="48"/>
+                                <StatusBar x:Name="StatusBarQrz" Height="30" VerticalContentAlignment="Center" Grid.ColumnSpan="4" VerticalAlignment="Bottom" Grid.Row="2">
+                                    <TextBlock x:Name="TextBlockStatusBar" TextWrapping="Wrap" Text="TextBlock" Width="119"/>
+                                </StatusBar>
+                                <Label x:Name="LabelLoginID" Content="LabelLoginID" HorizontalAlignment="Left" Margin="68,52,0,0" VerticalAlignment="Top" Grid.Column="2" Height="26" Width="0"/>
+                                <StackPanel Margin="25,43,0,0" VerticalAlignment="Top" Background="White" Grid.ColumnSpan="2" Height="130" Grid.Column="1" HorizontalAlignment="Left" Width="525">
+                                    <Label x:Name="LabelGMTime" Content="LabelGMTime" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                                    <Label x:Name="LabelCount" Content="LabelCount" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                                    <Label x:Name="LabelSubExp" Content="LabelSubExp" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                                    <Label x:Name="LabelKey" Content="LabelKey" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                                    <Label x:Name="LabelVersion" Content="LabelVersion" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                                </StackPanel>
+                                <StackPanel Margin="8,10,8,35" Background="#FFE8E1E1" Grid.Row="1">
+                                    <Label x:Name="LabelCall" Content="LabelCall" Margin="0,0,-50,0"/>
+                                    <Label x:Name="LabelFullname" Content="LabelFullname" Margin="0,0,-50,0"/>
+                                    <Label x:Name="LabelAddr1" Content="LabelAddr1" Margin="0,0,-50,0"/>
+                                    <Label x:Name="LabelAddr2" Content="LabelAddr2" Margin="0,0,-50,0"/>
+                                    <Label x:Name="LabelCountry" Content="LabelCountry" Margin="0,0,-50,0"/>
+                                    <Label x:Name="LabelLat" Content="LabelLat" Margin="0,0,-50,0"/>
+                                    <Label x:Name="LabelLon" Content="LabelLon" Margin="0,0,-50,0"/>
+                                    <Label x:Name="LabelGrid" Content="LabelGrid" Margin="0,0,-50,0"/>
+                                    <Label x:Name="LabelCounty" Content="LabelCounty" Margin="0,0,-50,0"/>
+                                    <Label x:Name="LabelLand" Content="LabelLand" Margin="0,0,-50,0"/>
+                                    <Label x:Name="LabelEfdate" Content="LabelEfdate" Margin="0,0,-50,0"/>
+                                    <Label x:Name="LabelExpdate" Content="LabelExpdate" Margin="0,0,-50,0"/>
+                                    <Label x:Name="LabelP_call" Content="LabelP_call" Margin="0,0,-50,0"/>
+                                </StackPanel>
+                                <StackPanel Margin="8,10,8,35" Background="#FFD9D8E8" Grid.Column="2" Grid.Row="1">
+                                    <Label x:Name="LabelGMTOffset" Content="LabelGMTOffset"/>
+                                    <Label x:Name="LabelDST" Content="LabelDST"/>
+                                    <Label x:Name="LabelEqsl" Content="LabelEqsl"/>
+                                    <Label x:Name="LabelMqsl" Content="LabelMqsl"/>
+                                    <Label x:Name="LabelCqzone" Content="LabelCqzone"/>
+                                    <Label x:Name="LabelItuzone" Content="LabelItuzone"/>
+                                    <Label x:Name="LabelLocref" Content="LabelLocref"/>
+                                    <Label x:Name="LabelIota" Content="LabelIota"/>
+                                    <Label x:Name="LabelLotw" Content="LabelLotw"/>
+                                    <Label x:Name="LabelUser" Content="LabelUser"/>
+                                    <Label x:Name="LabelFips" Content="LabelFips"/>
+                                    <Label x:Name="LabelLand1" Content="LabelLand"/>
+                                    <Label x:Name="LabelMSA" Content="LabelMSA"/>
+                                </StackPanel>
+                                <StackPanel Margin="8,10,8,35" Background="#FFF0E3E3" Grid.Column="1" Grid.Row="1">
+                                    <Label x:Name="LabelBorn" Content="LabelBorn"/>
+                                    <Label x:Name="LabelTrustee" Content="LabelTrustee"/>
+                                    <Label x:Name="LabelClass" Content="LabelClass"/>
+                                    <Label x:Name="LabelCodes" Content="LabelCodes"/>
+                                    <Label x:Name="LabelQslmgr" Content="LabelQslmgr"/>
+                                    <Label x:Name="LabelEmail" Content="LabelEmail"/>
+                                    <Label x:Name="LabelUrl" Content="LabelUrl"/>
+                                    <Label x:Name="LabelU_views" Content="LabelU_views"/>
+                                    <Label x:Name="LabelBio" Content="LabelBio"/>
+                                    <Label x:Name="LabelImage" Content="LabelImage"/>
+                                    <Label x:Name="LabelModdate" Content="LabelModdate"/>
+                                    <Label x:Name="LabelAreaCode" Content="LabelAreaCode"/>
+                                    <Label x:Name="LabelTimeZone" Content="LabelTimeZone"/>
+                                </StackPanel>
+                                <DataGrid x:Name="DataGridQRZcom" Margin="8,10,8,35" AutoGeneratedColumns="DataGridQRZcom_AutoGeneratedColumns" AutoGeneratingColumn="DataGridQRZcom_AutoGeneratingColumn" Grid.Column="3" Grid.Row="1"/>
+                            </Grid>
+                        </TabItem>
+                    </TabControl>
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="TabItemshvMorse" Header="shvMorse" Background="#FF74A8FF" Width="100">
+                <Grid Background="#FF74A8FF">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="13*"/>
+                        <ColumnDefinition Width="119*"/>
+                    </Grid.ColumnDefinitions>
+                    <Slider x:Name="SliderSpeedStart" HorizontalAlignment="Left" Margin="710,55,0,0" VerticalAlignment="Top" Width="100" Value="{Binding Value, ElementName=ScrollBarSpeedStart}" Maximum="100" Minimum="1" SmallChange="1" Height="20" TickFrequency="9" LargeChange="10" PreviewMouseWheel="SliderSpeedStart_PreviewMouseWheel" MouseWheel="SliderSpeedStart_MouseWheel" Grid.Column="1"/>
+                    <Slider x:Name="SliderSpeedEnd" HorizontalAlignment="Left" Margin="710,115,0,0" VerticalAlignment="Top" Width="100" Maximum="100" Minimum="1" SmallChange="1" Value="{Binding Value, ElementName=ScrollBarSpeedEnd}" Height="20" LargeChange="10" MouseWheel="SliderSpeedEnd_MouseWheel" Grid.Column="1"/>
+                    <Slider x:Name="SliderSpeedDecrement" HorizontalAlignment="Left" Margin="710,175,0,0" VerticalAlignment="Top" Width="100" Maximum="100" Minimum="1" SmallChange="1" Value="{Binding Value, ElementName=ScrollBarSpeedDecrement}" Height="20" LargeChange="7" MouseWheel="SliderSpeedDecrement_MouseWheel" Grid.Column="1"/>
+                    <Button x:Name="ButtonSpeedDown" Content="Speed Down" HorizontalAlignment="Left" Margin="27,45,0,0" VerticalAlignment="Top" Width="140" Height="40" Click="ButtonSpeedDown_Click" FontSize="16" Grid.ColumnSpan="2"/>
+                    <StackPanel x:Name="StackPanelSpeedStart" HorizontalAlignment="Left" Margin="610,45,0,0" VerticalAlignment="Top" Orientation="Horizontal" Height="40" Grid.Column="1">
+                        <TextBox x:Name="TextBoxSpeedStart" TextWrapping="Wrap" Text="{Binding Value, ElementName=ScrollBarSpeedStart, StringFormat=\{0:F0\}}" Width="60" Height="40" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="16"/>
+                        <ScrollBar x:Name="ScrollBarSpeedStart" Width="20" RenderTransformOrigin="0.5,0.5" Maximum="100" Minimum="1" SmallChange="1" Value="40" Height="40" BorderThickness="1" BorderBrush="Gray" MouseWheel="ScrollBarSpeedStart_MouseWheel">
+                            <ScrollBar.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform Angle="180"/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </ScrollBar.RenderTransform>
+                        </ScrollBar>
+                    </StackPanel>
+                    <StackPanel x:Name="StackPanelSpeedEnd" HorizontalAlignment="Left" Height="40" Margin="610,105,0,0" VerticalAlignment="Top" Orientation="Horizontal" Grid.Column="1">
+                        <TextBox x:Name="TextBoxSpeedEnd" TextWrapping="Wrap" Text="{Binding Value, ElementName=ScrollBarSpeedEnd, Mode=TwoWay, StringFormat=\{0:F0\}}" Width="60" Height="40" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="16"/>
+                        <ScrollBar x:Name="ScrollBarSpeedEnd" RenderTransformOrigin="0.5,0.5" Maximum="100" Minimum="1" SmallChange="1" Value="20" Width="20" Height="40" MouseWheel="ScrollBarSpeedEnd_MouseWheel">
+                            <ScrollBar.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform Angle="180"/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </ScrollBar.RenderTransform>
+                        </ScrollBar>
+                    </StackPanel>
+                    <StackPanel x:Name="StackPanelSpeedDecrement" HorizontalAlignment="Left" Height="40" Margin="610,165,0,0" VerticalAlignment="Top" Width="80" Orientation="Horizontal" Grid.Column="1">
+                        <TextBox x:Name="TextBoxSpeedDecrement" TextWrapping="Wrap" Text="{Binding Value, ElementName=ScrollBarSpeedDecrement}" Width="60" Height="40" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="16"/>
+                        <ScrollBar x:Name="ScrollBarSpeedDecrement" RenderTransformOrigin="0.5,0.5" Maximum="100" Minimum="1" SmallChange="1" Value="2" Width="20" Height="40" MouseWheel="ScrollBarSpeedDecrement_MouseWheel">
+                            <ScrollBar.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform Angle="180"/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </ScrollBar.RenderTransform>
+                        </ScrollBar>
+                    </StackPanel>
+                    <StackPanel x:Name="StackPanelRepeatCycles" HorizontalAlignment="Left" Margin="610,225,0,0" VerticalAlignment="Top" Orientation="Horizontal" Height="40" Grid.Column="1">
+                        <TextBox x:Name="TextBoxRepeatCycles" TextWrapping="Wrap" Text="{Binding Value, ElementName=ScrollBarRepeatCycles}" Width="60" Height="40" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="16"/>
+                        <ScrollBar x:Name="ScrollBarRepeatCycles" Width="20" Height="40" Maximum="100" Minimum="1" SmallChange="1" Value="1" RenderTransformOrigin="0.5,0.5" MouseWheel="ScrollBarRepeatCycles_MouseWheel">
+                            <ScrollBar.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform Angle="180"/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </ScrollBar.RenderTransform>
+                        </ScrollBar>
+                    </StackPanel>
+                    <ComboBox x:Name="ComboBoxCWPitch" HorizontalAlignment="Left" Margin="315,230,0,0" VerticalAlignment="Top" Width="120" Height="42" FontSize="16" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" MouseWheel="ComboBoxCWPitch_MouseWheel" Grid.Column="1"/>
+                    <StackPanel HorizontalAlignment="Left" Height="60" Margin="27,125,0,0" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2">
+                        <RadioButton x:Name="radioButtonAnswerBefore" Content="Before"/>
+                        <RadioButton x:Name="radioButtonMatchAfter" Content="Match After"/>
+                        <RadioButton x:Name="radioButtonAnswerAllAfter" Content="All After"/>
+                    </StackPanel>
+                    <TextBox x:Name="textBoxSystemAnswer" HorizontalAlignment="Left" Height="40" Margin="115,91,0,0" TextWrapping="Wrap" Text="System Answer" VerticalAlignment="Top" Width="320" FontSize="24" Grid.Column="1"/>
+                    <TextBox x:Name="textBoxUserAnswer" HorizontalAlignment="Left" Height="40" Margin="115,168,0,0" TextWrapping="Wrap" Text="User Answer" VerticalAlignment="Top" Width="320" FontSize="24" Grid.Column="1"/>
+                    <Label x:Name="labelCurrentSpeed" Content="CurrentSpeed" HorizontalAlignment="Left" Margin="110,46,0,0" VerticalAlignment="Top" FontSize="24" Height="40" Width="160" Grid.Column="1"/>
+                    <Label Content="Speed Start" HorizontalAlignment="Left" Margin="519,45,0,0" VerticalAlignment="Top" Height="40" VerticalContentAlignment="Center" Grid.Column="1"/>
+                    <Label Content="Speed End" HorizontalAlignment="Left" Margin="524,105,0,0" VerticalAlignment="Top" Height="40" VerticalContentAlignment="Center" Grid.Column="1"/>
+                    <Label Content="Speed Decrement" HorizontalAlignment="Left" Margin="486,165,0,0" VerticalAlignment="Top" Height="40" VerticalContentAlignment="Center" Grid.Column="1"/>
+                    <Label Content="Repeat Cycles" HorizontalAlignment="Left" Margin="507,225,0,0" VerticalAlignment="Top" Height="40" VerticalContentAlignment="Center" Grid.Column="1"/>
+                    <Label Content="Repeat Cycles" HorizontalAlignment="Left" Margin="212,230,0,0" VerticalAlignment="Top" Height="40" VerticalContentAlignment="Center" Grid.Column="1"/>
+                    <ListView x:Name="ListViewMorseDebug_Copy" HorizontalAlignment="Left" Height="380" Margin="5,0,0,5" VerticalAlignment="Bottom" Width="580" Grid.ColumnSpan="2">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn/>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                    <ListView x:Name="ListViewMorseDebug" HorizontalAlignment="Right" Height="380" VerticalAlignment="Bottom" Width="580" Margin="0,0,5,5" Grid.Column="1">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn/>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="TabitemshvAlert" Header="shvAlert" Height="20" Width="100" Background="#FF93C3FF">
+                <Grid Background="#FFE5E5E5">
+                    <Grid Background="#FF93C3FF">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="137*"/>
+                            <ColumnDefinition Width="10*"/>
+                            <ColumnDefinition Width="305*"/>
+                            <ColumnDefinition Width="736*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBox x:Name="TextBoxAlertServer" HorizontalAlignment="Left" Height="23" Margin="75,18,0,0" TextWrapping="Wrap" Text="server:" VerticalAlignment="Top" Width="120" Grid.Column="3"/>
+                        <TextBox x:Name="TextBoxAlertPort" HorizontalAlignment="Left" Height="23" Margin="275,18,0,0" TextWrapping="Wrap" Text="port:" VerticalAlignment="Top" Width="120" Grid.Column="3"/>
+                        <Button x:Name="ButtonAlertConnect2Mshv" Content="Connect to MSHV" HorizontalAlignment="Left" Margin="0,18,0,0" VerticalAlignment="Top" Height="23" Click="ButtonAlertConnect2Mshv_Click" Grid.Column="1" Grid.ColumnSpan="2"/>
+                        <DataGrid x:Name="DataGridAlertResult" Margin="10,55,10,179" Grid.ColumnSpan="4"/>
+                        <ListView x:Name="ListViewAlertDebug" Margin="17,0,10,19" Height="140" VerticalAlignment="Bottom" Grid.ColumnSpan="4">
+                            <ListView.View>
+                                <GridView>
+                                    <GridViewColumn/>
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
+                        <TextBox x:Name="TextBoxAlertMSG" HorizontalAlignment="Left" Height="23" Margin="425,18,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="280" Grid.Column="3"/>
+                        <ProgressBar x:Name="ProgressBarAlertMSG" HorizontalAlignment="Left" Height="23" Margin="130,18,0,0" VerticalAlignment="Top" Width="100" Grid.Column="2"/>
+                        <Button x:Name="ButtonStopAlert" Content="STOP" HorizontalAlignment="Left" Margin="37,18,0,0" VerticalAlignment="Top" Width="75" Click="ButtonStopAlert_Click"/>
+                    </Grid>
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="TabitemshvPSKReporter" Header="shvPSKReporter" Height="20" Width="100" Background="#FFB2E0FF">
+                <Grid Background="#FFD3EDFF">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="375*"/>
+                        <RowDefinition Height="319*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="597*"/>
+                        <ColumnDefinition Width="280*"/>
+                        <ColumnDefinition Width="311*"/>
+                    </Grid.ColumnDefinitions>
+                    <Rectangle Grid.Column="2" Margin="5,30,5,0">
+                        <Rectangle.Stroke>
+                            <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ActiveBorderColorKey}}"/>
+                        </Rectangle.Stroke>
+                        <Rectangle.Fill>
+                            <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ControlLightLightColorKey}}"/>
+                        </Rectangle.Fill>
+                    </Rectangle>
+                    <Button x:Name="ButtonDiag2" Content="Diag 2" VerticalAlignment="Top" Height="20" Margin="0,4,10,0" Click="ButtonDiag1_Click" HorizontalAlignment="Right" Width="115" Grid.Column="1"/>
+                    <Button x:Name="ButtonPSKinfo" Content="Get PSK Info" Click="ButtonPSKinfo_Click" Margin="532,4,0,0" Height="20" VerticalAlignment="Top" Width="100" HorizontalAlignment="Left" Grid.ColumnSpan="2"/>
+                    <Button Content="New Diag" VerticalAlignment="Top" Height="20" Margin="50,4,0,0" Click="ButtonNewWindow_Click" HorizontalAlignment="Left" Width="100" Grid.Column="1"/>
+                    <TextBlock x:Name="TextBlockMSG" HorizontalAlignment="Right" Margin="0,5,85,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="115" Height="20">
+                        <TextBlock.Background>
+                            <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ControlLightColorKey}}"/>
+                        </TextBlock.Background>
+                    </TextBlock>
+                    <TextBox x:Name="TextBoxPSKMSG" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Grid.Column="2" Margin="5,30,5,119" Grid.Row="1"/>
+                    <TextBox x:Name="TextBoxPSKBaseURL" HorizontalAlignment="Center" Height="45" Margin="10,250,10,0" TextWrapping="Wrap" Text="https://retrieve.pskreporter.info/query?callsign=requestedcall" VerticalAlignment="Top" Width="291" Grid.Column="2" FontSize="10" BorderBrush="{x:Null}"/>
+                    <TextBox x:Name="TextBoxPSKInfo" Grid.Row="1" TextWrapping="Wrap" Grid.Column="2" VerticalScrollBarVisibility="Auto" Height="109" VerticalAlignment="Bottom" Margin="5,0,5,5"/>
+                    <DataGrid x:Name="DataGridReceptionReport" Grid.ColumnSpan="2" Margin="5,30,0,0" AutoGeneratingColumn="DataGridReceptionReport_AutoGeneratingColumn" MouseDoubleClick="DataGridReceptionReport_MouseDoubleClick" Sorting="DataGridReceptionReport_Sorting" Background="White">
+                        <DataGrid.BorderBrush>
+                            <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ActiveBorderColorKey}}"/>
+                        </DataGrid.BorderBrush>
+                    </DataGrid>
+                    <DataGrid x:Name="DataGridActiveReceiver" Grid.Row="1" AutoGeneratingColumn="DataGridActiveReceiver_AutoGeneratingColumn" Margin="5,30,0,5" Background="White">
+                        <DataGrid.BorderBrush>
+                            <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ActiveBorderColorKey}}"/>
+                        </DataGrid.BorderBrush>
+                    </DataGrid>
+                    <DataGrid x:Name="DataGridActiveCallsign" Grid.Row="1" Grid.Column="1" AutoGeneratingColumn="DataGridActiveCallsign_AutoGeneratingColumn" Margin="0,30,0,5" Background="White">
+                        <DataGrid.BorderBrush>
+                            <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ActiveBorderColorKey}}"/>
+                        </DataGrid.BorderBrush>
+                    </DataGrid>
+                    <TextBox x:Name="TextBoxPSKLeftDownMSG" Height="18" Grid.Row="1" TextWrapping="Wrap" Text="activeReceiver" VerticalAlignment="Top" Margin="5,5,0,0" HorizontalAlignment="Left" Width="152" Background="{x:Null}" BorderBrush="{x:Null}"/>
+                    <TextBox x:Name="TextBoxPSKCenterDownMSG" Grid.Column="1" Height="20" Margin="5,5,0,0" Grid.Row="1" TextWrapping="Wrap" Text="activeCallsign" VerticalAlignment="Top" HorizontalAlignment="Left" Width="160" Background="{x:Null}" BorderBrush="{x:Null}"/>
+                    <TextBox x:Name="TextBoxPSKLeftUpperMSG" Height="20" Margin="5,5,0,0" TextWrapping="Wrap" Text="receptionReport" VerticalAlignment="Top" HorizontalAlignment="Left" Width="232" Background="{x:Null}" BorderBrush="{x:Null}"/>
+                    <StackPanel Grid.Column="2" Margin="160,56,10,137">
+                        <ComboBox x:Name="ComboBoxCallSign" Height="26" DropDownClosed="ComboBoxCallSign_DropDownClosed"/>
+                        <ComboBox x:Name="ComboBoxSenderCallsign" Height="26" DropDownClosed="ComboBoxSenderCallsign_DropDownClosed"/>
+                        <ComboBox x:Name="ComboBoxReceiverCallsign" Height="26" DropDownClosed="ComboBoxReceiverCallsign_DropDownClosed"/>
+                        <ComboBox x:Name="ComboBoxMode" Height="26"/>
+                        <ComboBox x:Name="ComboBoxFrange1" Height="26"/>
+                        <ComboBox x:Name="ComboBoxFrange2" Height="26"/>
+                        <ComboBox x:Name="ComboBoxRronly" Height="26"/>
+                    </StackPanel>
+                    <StackPanel Grid.Column="2" Margin="10,56,151,137">
+                        <Label Content="Callsign" VerticalAlignment="Top"/>
+                        <Label Content="Sender Callsign" VerticalAlignment="Top"/>
+                        <Label Content="Receiver Callsign" VerticalAlignment="Top"/>
+                        <Label Content="Mode" VerticalAlignment="Top"/>
+                        <Label Content="Frequency From" VerticalAlignment="Top"/>
+                        <Label Content="Frequency To" VerticalAlignment="Top"/>
+                        <Label Content="Reception Reports Only" VerticalAlignment="Top"/>
+                    </StackPanel>
+                    <Button x:Name="ButtonGetPSKxml" Content="Get PSK Report" Margin="80,0,76,6" Click="ButtonGetPSKxml_Click" Grid.Column="2" FontWeight="Bold" Width="155" Background="#FF3399FF" Height="28" VerticalAlignment="Bottom">
+                        <Button.Foreground>
+                            <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ControlLightLightColorKey}}"/>
+                        </Button.Foreground>
+                    </Button>
+                    <Label Content="Debug" Grid.Column="2" Margin="135,2,130,0" Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+                    <Label Content="Query Command" Grid.Column="2" Margin="114,1,97,0" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+                    <Label x:Name="LabelSearchedCall" Content="Label" Grid.Column="2" Margin="70,301,70,0" VerticalAlignment="Top" FontSize="20" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Meiryo UI"/>
+                </Grid>
+            </TabItem>
+
+        </TabControl>
+
+
+    </Grid>
+</Window>
