@@ -67,34 +67,38 @@ namespace shvFT991A
             //GetRandomCallSign();
             string searchCall = null;
 
-            if (3 < mainWindow.ComboBoxSenderCallsign.SelectedItem.ToString().Length)
+            if (3 < mainWindow.ComboBoxSenderCallsign.SelectedItem.ToString().Length)//--------------------SenderCallsign
             {
                 searchCall = mainWindow.ComboBoxSenderCallsign.SelectedItem.ToString();
                 xmlUrlPSK = xmlUrlPSK + "senderCallsign=" + searchCall;
                 mainWindow.ComboBoxCallSign.SelectedIndex = 0;
                 mainWindow.ComboBoxReceiverCallsign.SelectedIndex = 0;
             }
-            if (3 < mainWindow.ComboBoxReceiverCallsign.SelectedItem.ToString().Length)
+            if (3 < mainWindow.ComboBoxReceiverCallsign.SelectedItem.ToString().Length)//--------------------ReceiverCallsign
             {
                 searchCall = mainWindow.ComboBoxReceiverCallsign.SelectedItem.ToString();
                 xmlUrlPSK = xmlUrlPSK + "receiverCallsign=" + searchCall;
                 mainWindow.ComboBoxCallSign.SelectedIndex = 0;
                 mainWindow.ComboBoxSenderCallsign.SelectedIndex = 0;
             }
-            if (3 < mainWindow.ComboBoxCallSign.SelectedItem.ToString().Length)
+            if (3 < mainWindow.ComboBoxCallSign.SelectedItem.ToString().Length)//--------------------Callsign
             {
                 searchCall = mainWindow.ComboBoxCallSign.SelectedItem.ToString();
                 xmlUrlPSK = xmlUrlPSK + "callsign=" + searchCall;
                 mainWindow.ComboBoxReceiverCallsign.SelectedIndex = 0;
                 mainWindow.ComboBoxSenderCallsign.SelectedIndex = 0;
             }
-            if (mainWindow.ComboBoxMode.SelectedItem.ToString() != "all")
+            if (mainWindow.ComboBoxMode.SelectedItem.ToString() != "all")//--------------------Mode
             {
                 xmlUrlPSK = xmlUrlPSK + "&mode=" + mainWindow.ComboBoxMode.SelectedItem.ToString();
             }
-            if (mainWindow.ComboBoxRronly.SelectedItem.ToString() == "true")
+            if (mainWindow.ComboBoxRronly.SelectedItem.ToString() == "true")//--------------------Rronly
             {
                 xmlUrlPSK = xmlUrlPSK + "&rronly=1";
+            }
+            if (mainWindow.ComboBoxFRange.SelectedItem.ToString() != "all")//--------------------FRange
+            {
+                xmlUrlPSK = xmlUrlPSK + "&frange=" + mainWindow.ComboBoxFRange.SelectedItem.ToString();
             }
 
             mainWindow.TextBoxPSKBaseURL.Text = xmlUrlPSK;

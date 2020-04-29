@@ -2246,7 +2246,7 @@ namespace shvFT991A
         public string my_gridsquare { get; set; }//
         */
 
-        //=========================================================================================================================== PSKanalyze
+        //=========================================================================================================================== PSKReporter
 
 
         private void SetPSKTabInitially()
@@ -2267,6 +2267,22 @@ namespace shvFT991A
                 ComboBoxMode.Items.Add(mode1);
             }
             ComboBoxMode.SelectedIndex = 0;
+
+            string[] arrBand = { "all", "160m", "80m", "60m", "40m", "30m", "20m", "17m", "15m", "12m", "11m", "10m", "6m", "4m", "2m", "70cm" };
+            foreach (var band1 in arrBand)
+            {
+                ComboBoxFBand.Items.Add(band1);
+            }
+            ComboBoxFBand.SelectedIndex = 0;
+
+            string[] arrRange = { "all", "1810000-1912500", "3500000-3805000", "5351500-5366500", "7000000-7200000", "10100000-10150000", 
+                "14000000-14350000", "18068000-18168000", "21000000-21450000", "24890000-24990000", "26000000-27900000", "28000000-29700000", 
+                "50000000-54000000","70000000-70500000", "144000000-146000000", "430000000-440000000" };
+            foreach (var range1 in arrRange)
+            {
+                ComboBoxFRange.Items.Add(range1);
+            }
+            ComboBoxFRange.SelectedIndex = 0;
 
             ComboBoxRronly.Items.Add("false");
             ComboBoxRronly.Items.Add("true");
@@ -2512,30 +2528,46 @@ namespace shvFT991A
             }
         }
 
-        private void ComboBoxCallSign_DropDownClosed(object sender, EventArgs e)
+        private void ComboBoxCallSign_DropDownClosed(object sender, EventArgs e)// CallSign
         {
-            if (ComboBoxCallSign.SelectedIndex != 0)
+            if (ComboBoxCallSign.SelectedIndex != 0)// 0="-"
             {
                 ComboBoxReceiverCallsign.SelectedIndex = 0;
                 ComboBoxSenderCallsign.SelectedIndex = 0;
             }
         }
 
-        private void ComboBoxSenderCallsign_DropDownClosed(object sender, EventArgs e)
+        private void ComboBoxSenderCallsign_DropDownClosed(object sender, EventArgs e)// SenderCallsign
         {
-            if (ComboBoxSenderCallsign.SelectedIndex != 0)
+            if (ComboBoxSenderCallsign.SelectedIndex != 0)// 0="-"
             {
                 ComboBoxCallSign.SelectedIndex = 0;
                 ComboBoxReceiverCallsign.SelectedIndex = 0;
             }            
         }      
 
-        private void ComboBoxReceiverCallsign_DropDownClosed(object sender, EventArgs e)
+        private void ComboBoxReceiverCallsign_DropDownClosed(object sender, EventArgs e)// ReceiverCallsign
         {
-            if (ComboBoxReceiverCallsign.SelectedIndex != 0)
+            if (ComboBoxReceiverCallsign.SelectedIndex != 0)// 0="-"
             {
                 ComboBoxCallSign.SelectedIndex = 0;
                 ComboBoxSenderCallsign.SelectedIndex = 0;
+            }
+        }
+
+        private void ComboBoxFBand_DropDownClosed(object sender, EventArgs e)// FBand
+        {
+            //if (ComboBoxFBand.SelectedIndex != 0)
+            {
+                ComboBoxFRange.SelectedIndex = ComboBoxFBand.SelectedIndex;
+            }
+        }
+
+        private void ComboBoxFRange_DropDownClosed(object sender, EventArgs e)// FRange
+        {
+            //if (ComboBoxFRange.SelectedIndex != 0)
+            {
+                ComboBoxFBand.SelectedIndex = ComboBoxFRange.SelectedIndex;
             }
         }
 
