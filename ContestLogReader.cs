@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -26,7 +27,7 @@ namespace shvFT991A
             }
             else
             {
-                MessageBox.Show("File not found in ContestLogReader: " + file_all_ja_contest_log);
+                Debug.WriteLine("File not found in ContestLogReader: " + file_all_ja_contest_log);
                 return _contestlog;
             }
 
