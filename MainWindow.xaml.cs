@@ -1546,7 +1546,7 @@ namespace shvFT991A
 
         }
 
-        //===========================================================================================================================MORSE
+        //===========================================================================================================================MORSE SPEED DOWN
 
         private void SetMorseTabInitially()
         {
@@ -1586,7 +1586,11 @@ namespace shvFT991A
             //dgc.Header
             //DataGridMemoryChannel.Columns[0] = DataGridTemplateColumn.HeaderProperty
             //--------------------------------------------------------------------------------------------------------------------
-        }
+                    
+            labelSpeedResult1.Content = "  WPM";
+            labelSpeedResult2.Content = "  WPM";
+
+        }      
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -1673,6 +1677,10 @@ namespace shvFT991A
 
             }
             // }
+        }
+
+        private void ButtonSpeedDownStop_Click(object sender, RoutedEventArgs e)
+        {
         }
 
         private string generateRandomCall()
@@ -1812,6 +1820,20 @@ namespace shvFT991A
             }
 
             //Console.WriteLine(e.Delta + " " + ComboBoxCWPitch.SelectedIndex);
+        }
+
+        //===========================================================================================================================MORSE LETTER
+
+        private void ButtonSpeedDownLetterStart_Click(object sender, RoutedEventArgs e)
+        {
+            TextBoxMorseLetter1.Text = "J";
+            TextBoxMorseLetter9.Text = "A";
+        }
+
+        private void ButtonSpeedDownLetterStop_Click(object sender, RoutedEventArgs e)
+        {
+            TextBoxMorseLetter1.Text = "_";
+            TextBoxMorseLetter9.Text = "_";
         }
 
         //===========================================================================================================================ALERT
@@ -2275,8 +2297,8 @@ namespace shvFT991A
             }
             ComboBoxFBand.SelectedIndex = 0;
 
-            string[] arrRange = { "all", "1810000-1912500", "3500000-3805000", "5351500-5366500", "7000000-7200000", "10100000-10150000", 
-                "14000000-14350000", "18068000-18168000", "21000000-21450000", "24890000-24990000", "26000000-27900000", "28000000-29700000", 
+            string[] arrRange = { "all", "1810000-1912500", "3500000-3805000", "5351500-5366500", "7000000-7200000", "10100000-10150000",
+                "14000000-14350000", "18068000-18168000", "21000000-21450000", "24890000-24990000", "26000000-27900000", "28000000-29700000",
                 "50000000-54000000","70000000-70500000", "144000000-146000000", "430000000-440000000" };
             foreach (var range1 in arrRange)
             {
@@ -2485,7 +2507,7 @@ namespace shvFT991A
                     PSKDataItem.receptionReport rp = new PSKDataItem.receptionReport();
 
                     rp = (PSKDataItem.receptionReport)cell.DataContext;
-                    string r = "https://www.qrz.com/db/" + rp.receiverCallsign ;
+                    string r = "https://www.qrz.com/db/" + rp.receiverCallsign;
 
                     Process.Start(r);
 
@@ -2501,7 +2523,7 @@ namespace shvFT991A
 
             var sortDir = e.Column.SortDirection;
 
-            if (ListSortDirection.Ascending != sortDir)sortDir = ListSortDirection.Ascending;
+            if (ListSortDirection.Ascending != sortDir) sortDir = ListSortDirection.Ascending;
             else sortDir = ListSortDirection.Descending;
             /*
             if (ListSortDirection.Ascending == sortDir)
@@ -2543,8 +2565,8 @@ namespace shvFT991A
             {
                 ComboBoxCallSign.SelectedIndex = 0;
                 ComboBoxReceiverCallsign.SelectedIndex = 0;
-            }            
-        }      
+            }
+        }
 
         private void ComboBoxReceiverCallsign_DropDownClosed(object sender, EventArgs e)// ReceiverCallsign
         {
@@ -2571,10 +2593,7 @@ namespace shvFT991A
             }
         }
 
-        private void ButtonSpeedDownStop_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
+        
 
         private void ButtonNewWindow_Click(object sender, RoutedEventArgs e)
         {
