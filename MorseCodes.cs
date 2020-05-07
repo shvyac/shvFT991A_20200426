@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace shvFT991A
 {
-    public class Codes
+    public class MorseCodes
     {
         public string this[char character]
         {

@@ -19,7 +19,7 @@ namespace shvFT991A
     using System.Windows.Media;
     using System.Collections.Specialized;
 
-    public class Modem
+    public class MorseModem
     {
         private int TimeUnitInMilliSeconds { get; set; } = 30;
         private int frequency { get; set; } = 650;
@@ -28,7 +28,7 @@ namespace shvFT991A
         public char Dot { get; set; } = '.';
         public char Dash { get; set; } = '-';
 
-        public Codes codeStore;
+        public MorseCodes codeStore;
         public MainWindow mainWindow = (MainWindow)App.Current.MainWindow;
 
         public void Main()
@@ -38,7 +38,7 @@ namespace shvFT991A
 
         public string ConvertToMorseCode(string sentence, bool addStartAndEndSignal = false)
         {
-            codeStore = new Codes();
+            codeStore = new MorseCodes();
 
             ((INotifyCollectionChanged)mainWindow.ListViewMorseDebug.Items).CollectionChanged += this.ListBoxCollectionChanged;
 

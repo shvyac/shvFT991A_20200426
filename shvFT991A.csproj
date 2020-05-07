@@ -61,7 +61,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Codes.cs" />
+    <Compile Include="MorseCodes.cs" />
     <Compile Include="ContestLogItem.cs" />
     <Compile Include="ContestLogReader.cs" />
     <Compile Include="ContestResultItem.cs" />
@@ -92,7 +92,7 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="MemoryChannel.cs" />
-    <Compile Include="Modem.cs" />
+    <Compile Include="MorseModem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

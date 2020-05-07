@@ -1616,7 +1616,7 @@ namespace shvFT991A
         public void ButtonSpeedDown_Click(object sender, RoutedEventArgs e)
         {
             //-------------------------------------------------------------------------------------------------
-            var modem = new Modem();
+            var modem = new MorseModem();
 
             int speedS = (int)Convert.ToInt16(TextBoxSpeedStart.Text);
             int speedE = (int)Convert.ToInt16(TextBoxSpeedEnd.Text);
@@ -2569,6 +2569,11 @@ namespace shvFT991A
             {
                 ComboBoxFBand.SelectedIndex = ComboBoxFRange.SelectedIndex;
             }
+        }
+
+        private void ButtonSpeedDownStop_Click(object sender, RoutedEventArgs e)
+        {
+
         }
 
         private void ButtonNewWindow_Click(object sender, RoutedEventArgs e)

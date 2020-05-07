@@ -6,12 +6,16 @@
         xmlns:local="clr-namespace:shvFT991A"
         mc:Ignorable="d"
         Title="shvFT991A" Height="747" Width="1204" WindowStartupLocation="CenterScreen" Background="{x:Null}">
-    <Grid Margin="0,0,2,-6" Background="#FF2C73D2">
+    <Grid Margin="0" Background="#FF2C73D2">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80*"/>
+            <RowDefinition Height="99*"/>
+        </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="130*"/>
-            <ColumnDefinition Width="69*"/>
+            <ColumnDefinition Width="100*"/>
+            <ColumnDefinition Width="99*"/>
         </Grid.ColumnDefinitions>
-        <TabControl x:Name="TabControlMain" SelectionChanged="TabControlMain_SelectionChanged" Grid.ColumnSpan="2">
+        <TabControl x:Name="TabControlMain" SelectionChanged="TabControlMain_SelectionChanged" Grid.ColumnSpan="2" Grid.RowSpan="2">
             <TabItem x:Name="TabItemFT991A" Header="shvFT991A" Background="#FF2C73D2" Foreground="Black" Width="100">
                 <Grid Background="#FF2C73D2" Margin="0,0,0,-1">
                     <Grid.RowDefinitions>
@@ -351,16 +355,13 @@
             <TabItem x:Name="TabItemshvMorse" Header="shvMorse" Background="#FF74A8FF" Width="100">
                 <Grid Background="#FF74A8FF">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="13*"/>
-                        <ColumnDefinition Width="119*"/>
+                        <ColumnDefinition Width="597*"/>
+                        <ColumnDefinition Width="593*"/>
                     </Grid.ColumnDefinitions>
-                    <Slider x:Name="SliderSpeedStart" HorizontalAlignment="Left" Margin="710,55,0,0" VerticalAlignment="Top" Width="100" Value="{Binding Value, ElementName=ScrollBarSpeedStart}" Maximum="100" Minimum="1" SmallChange="1" Height="20" TickFrequency="9" LargeChange="10" PreviewMouseWheel="SliderSpeedStart_PreviewMouseWheel" MouseWheel="SliderSpeedStart_MouseWheel" Grid.Column="1"/>
-                    <Slider x:Name="SliderSpeedEnd" HorizontalAlignment="Left" Margin="710,115,0,0" VerticalAlignment="Top" Width="100" Maximum="100" Minimum="1" SmallChange="1" Value="{Binding Value, ElementName=ScrollBarSpeedEnd}" Height="20" LargeChange="10" MouseWheel="SliderSpeedEnd_MouseWheel" Grid.Column="1"/>
-                    <Slider x:Name="SliderSpeedDecrement" HorizontalAlignment="Left" Margin="710,175,0,0" VerticalAlignment="Top" Width="100" Maximum="100" Minimum="1" SmallChange="1" Value="{Binding Value, ElementName=ScrollBarSpeedDecrement}" Height="20" LargeChange="7" MouseWheel="SliderSpeedDecrement_MouseWheel" Grid.Column="1"/>
-                    <Button x:Name="ButtonSpeedDown" Content="Speed Down" HorizontalAlignment="Left" Margin="27,45,0,0" VerticalAlignment="Top" Width="140" Height="40" Click="ButtonSpeedDown_Click" FontSize="16" Grid.ColumnSpan="2"/>
-                    <StackPanel x:Name="StackPanelSpeedStart" HorizontalAlignment="Left" Margin="610,45,0,0" VerticalAlignment="Top" Orientation="Horizontal" Height="40" Grid.Column="1">
-                        <TextBox x:Name="TextBoxSpeedStart" TextWrapping="Wrap" Text="{Binding Value, ElementName=ScrollBarSpeedStart, StringFormat=\{0:F0\}}" Width="60" Height="40" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="16"/>
-                        <ScrollBar x:Name="ScrollBarSpeedStart" Width="20" RenderTransformOrigin="0.5,0.5" Maximum="100" Minimum="1" SmallChange="1" Value="40" Height="40" BorderThickness="1" BorderBrush="Gray" MouseWheel="ScrollBarSpeedStart_MouseWheel">
+                    <Button x:Name="ButtonSpeedDown" Content="Speed Down" HorizontalAlignment="Left" Margin="5,29,0,0" VerticalAlignment="Top" Width="232" Height="40" Click="ButtonSpeedDown_Click" FontSize="16" Background="#FFA1EAFF" BorderBrush="{x:Null}"/>
+                    <StackPanel x:Name="StackPanelSpeedStart" Margin="0,74,5,0" VerticalAlignment="Top" Orientation="Horizontal" HorizontalAlignment="Right" Height="35" Width="105">
+                        <TextBox x:Name="TextBoxSpeedStart" TextWrapping="Wrap" Text="{Binding Value, ElementName=ScrollBarSpeedStart, StringFormat=\{0:F0\}}" Width="80" Height="35" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="16"/>
+                        <ScrollBar x:Name="ScrollBarSpeedStart" Width="25" RenderTransformOrigin="0.5,0.5" Maximum="100" Minimum="1" SmallChange="1" Value="40" Height="35" BorderThickness="1" BorderBrush="{x:Null}" MouseWheel="ScrollBarSpeedStart_MouseWheel" Background="White">
                             <ScrollBar.RenderTransform>
                                 <TransformGroup>
                                     <ScaleTransform/>
@@ -371,9 +372,9 @@
                             </ScrollBar.RenderTransform>
                         </ScrollBar>
                     </StackPanel>
-                    <StackPanel x:Name="StackPanelSpeedEnd" HorizontalAlignment="Left" Height="40" Margin="610,105,0,0" VerticalAlignment="Top" Orientation="Horizontal" Grid.Column="1">
-                        <TextBox x:Name="TextBoxSpeedEnd" TextWrapping="Wrap" Text="{Binding Value, ElementName=ScrollBarSpeedEnd, Mode=TwoWay, StringFormat=\{0:F0\}}" Width="60" Height="40" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="16"/>
-                        <ScrollBar x:Name="ScrollBarSpeedEnd" RenderTransformOrigin="0.5,0.5" Maximum="100" Minimum="1" SmallChange="1" Value="20" Width="20" Height="40" MouseWheel="ScrollBarSpeedEnd_MouseWheel">
+                    <StackPanel x:Name="StackPanelSpeedEnd" HorizontalAlignment="Right" Margin="0,135,5,0" VerticalAlignment="Top" Orientation="Horizontal" Height="35" Width="105">
+                        <TextBox x:Name="TextBoxSpeedEnd" TextWrapping="Wrap" Text="{Binding Value, ElementName=ScrollBarSpeedEnd, Mode=TwoWay, StringFormat=\{0:F0\}}" Width="80" Height="35" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="16"/>
+                        <ScrollBar x:Name="ScrollBarSpeedEnd" RenderTransformOrigin="0.5,0.5" Maximum="100" Minimum="1" SmallChange="1" Value="20" Width="25" Height="35" MouseWheel="ScrollBarSpeedEnd_MouseWheel">
                             <ScrollBar.RenderTransform>
                                 <TransformGroup>
                                     <ScaleTransform/>
@@ -384,9 +385,9 @@
                             </ScrollBar.RenderTransform>
                         </ScrollBar>
                     </StackPanel>
-                    <StackPanel x:Name="StackPanelSpeedDecrement" HorizontalAlignment="Left" Height="40" Margin="610,165,0,0" VerticalAlignment="Top" Width="80" Orientation="Horizontal" Grid.Column="1">
-                        <TextBox x:Name="TextBoxSpeedDecrement" TextWrapping="Wrap" Text="{Binding Value, ElementName=ScrollBarSpeedDecrement}" Width="60" Height="40" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="16"/>
-                        <ScrollBar x:Name="ScrollBarSpeedDecrement" RenderTransformOrigin="0.5,0.5" Maximum="100" Minimum="1" SmallChange="1" Value="2" Width="20" Height="40" MouseWheel="ScrollBarSpeedDecrement_MouseWheel">
+                    <StackPanel x:Name="StackPanelSpeedDecrement" HorizontalAlignment="Right" Margin="0,195,5,0" VerticalAlignment="Top" Orientation="Horizontal" Height="35" Width="105">
+                        <TextBox x:Name="TextBoxSpeedDecrement" TextWrapping="Wrap" Text="{Binding Value, ElementName=ScrollBarSpeedDecrement}" Width="80" Height="35" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="16"/>
+                        <ScrollBar x:Name="ScrollBarSpeedDecrement" RenderTransformOrigin="0.5,0.5" Maximum="100" Minimum="1" SmallChange="1" Value="2" Width="25" Height="35" MouseWheel="ScrollBarSpeedDecrement_MouseWheel">
                             <ScrollBar.RenderTransform>
                                 <TransformGroup>
                                     <ScaleTransform/>
@@ -397,9 +398,9 @@
                             </ScrollBar.RenderTransform>
                         </ScrollBar>
                     </StackPanel>
-                    <StackPanel x:Name="StackPanelRepeatCycles" HorizontalAlignment="Left" Margin="610,225,0,0" VerticalAlignment="Top" Orientation="Horizontal" Height="40" Grid.Column="1">
-                        <TextBox x:Name="TextBoxRepeatCycles" TextWrapping="Wrap" Text="{Binding Value, ElementName=ScrollBarRepeatCycles}" Width="60" Height="40" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="16"/>
-                        <ScrollBar x:Name="ScrollBarRepeatCycles" Width="20" Height="40" Maximum="100" Minimum="1" SmallChange="1" Value="1" RenderTransformOrigin="0.5,0.5" MouseWheel="ScrollBarRepeatCycles_MouseWheel">
+                    <StackPanel x:Name="StackPanelRepeatCycles" HorizontalAlignment="Right" Margin="0,254,5,0" VerticalAlignment="Top" Orientation="Horizontal" Height="35" Width="105">
+                        <TextBox x:Name="TextBoxRepeatCycles" TextWrapping="Wrap" Text="{Binding Value, ElementName=ScrollBarRepeatCycles}" Width="80" Height="35" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="16"/>
+                        <ScrollBar x:Name="ScrollBarRepeatCycles" Width="25" Height="35" Maximum="100" Minimum="1" SmallChange="1" Value="1" RenderTransformOrigin="0.5,0.5" MouseWheel="ScrollBarRepeatCycles_MouseWheel">
                             <ScrollBar.RenderTransform>
                                 <TransformGroup>
                                     <ScaleTransform/>
@@ -410,34 +411,62 @@
                             </ScrollBar.RenderTransform>
                         </ScrollBar>
                     </StackPanel>
-                    <ComboBox x:Name="ComboBoxCWPitch" HorizontalAlignment="Left" Margin="315,230,0,0" VerticalAlignment="Top" Width="120" Height="42" FontSize="16" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" MouseWheel="ComboBoxCWPitch_MouseWheel" Grid.Column="1"/>
-                    <StackPanel HorizontalAlignment="Left" Height="60" Margin="27,125,0,0" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2">
+                    <ComboBox x:Name="ComboBoxCWPitch" HorizontalAlignment="Right" Margin="0,254,119,0" VerticalAlignment="Top" Width="105" Height="35" FontSize="16" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" MouseWheel="ComboBoxCWPitch_MouseWheel" BorderBrush="{x:Null}">
+                        <ComboBox.Background>
+                            <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                                <GradientStop Color="#FFF0F0F0" Offset="0"/>
+                                <GradientStop Color="White" Offset="1"/>
+                            </LinearGradientBrush>
+                        </ComboBox.Background>
+                    </ComboBox>
+                    <StackPanel HorizontalAlignment="Left" Margin="373,135,0,0" VerticalAlignment="Top" Height="45" Width="82">
                         <RadioButton x:Name="radioButtonAnswerBefore" Content="Before"/>
                         <RadioButton x:Name="radioButtonMatchAfter" Content="Match After"/>
                         <RadioButton x:Name="radioButtonAnswerAllAfter" Content="All After"/>
                     </StackPanel>
-                    <TextBox x:Name="textBoxSystemAnswer" HorizontalAlignment="Left" Height="40" Margin="115,91,0,0" TextWrapping="Wrap" Text="System Answer" VerticalAlignment="Top" Width="320" FontSize="24" Grid.Column="1"/>
-                    <TextBox x:Name="textBoxUserAnswer" HorizontalAlignment="Left" Height="40" Margin="115,168,0,0" TextWrapping="Wrap" Text="User Answer" VerticalAlignment="Top" Width="320" FontSize="24" Grid.Column="1"/>
-                    <Label x:Name="labelCurrentSpeed" Content="CurrentSpeed" HorizontalAlignment="Left" Margin="110,46,0,0" VerticalAlignment="Top" FontSize="24" Height="40" Width="160" Grid.Column="1"/>
-                    <Label Content="Speed Start" HorizontalAlignment="Left" Margin="519,45,0,0" VerticalAlignment="Top" Height="40" VerticalContentAlignment="Center" Grid.Column="1"/>
-                    <Label Content="Speed End" HorizontalAlignment="Left" Margin="524,105,0,0" VerticalAlignment="Top" Height="40" VerticalContentAlignment="Center" Grid.Column="1"/>
-                    <Label Content="Speed Decrement" HorizontalAlignment="Left" Margin="486,165,0,0" VerticalAlignment="Top" Height="40" VerticalContentAlignment="Center" Grid.Column="1"/>
-                    <Label Content="Repeat Cycles" HorizontalAlignment="Left" Margin="507,225,0,0" VerticalAlignment="Top" Height="40" VerticalContentAlignment="Center" Grid.Column="1"/>
-                    <Label Content="Repeat Cycles" HorizontalAlignment="Left" Margin="212,230,0,0" VerticalAlignment="Top" Height="40" VerticalContentAlignment="Center" Grid.Column="1"/>
-                    <ListView x:Name="ListViewMorseDebug_Copy" HorizontalAlignment="Left" Height="380" Margin="5,0,0,5" VerticalAlignment="Bottom" Width="580" Grid.ColumnSpan="2">
+                    <TextBox x:Name="textBoxSystemAnswer" HorizontalAlignment="Left" Height="40" Margin="5,135,0,0" TextWrapping="Wrap" Text="System Answer" VerticalAlignment="Top" Width="352" FontSize="24" BorderBrush="{x:Null}"/>
+                    <TextBox x:Name="textBoxUserAnswer" HorizontalAlignment="Left" Height="40" Margin="5,213,0,0" TextWrapping="Wrap" Text="User Answer" VerticalAlignment="Top" Width="352" FontSize="24" BorderBrush="{x:Null}"/>
+                    <Label x:Name="labelCurrentSpeed" Content="CurrentSpeed" HorizontalAlignment="Left" Margin="10,96,0,0" VerticalAlignment="Top" FontSize="20" Height="37" Width="131"/>
+                    <Label Content="Speed Start" Margin="0,56,39,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Padding="5,0" HorizontalAlignment="Right" Height="16" Width="71"/>
+                    <Label Content="Speed End" Margin="0,117,44,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Padding="5,0" HorizontalAlignment="Right" Height="16" Width="66"/>
+                    <Label Content="Speed Decrement" HorizontalAlignment="Right" Margin="0,177,6,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="104" Padding="5,0" Height="16"/>
+                    <Label Content="Repeat Cycles" HorizontalAlignment="Right" Margin="0,237,27,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Padding="5,0" Height="16" Width="83"/>
+                    <Label Content="CW Pitch" HorizontalAlignment="Right" Margin="0,237,141,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="83" Padding="5,0" Height="16"/>
+                    <ListView x:Name="ListViewMorseDebugLetter" Margin="5,294,5,5" Grid.Column="1">
                         <ListView.View>
                             <GridView>
                                 <GridViewColumn/>
                             </GridView>
                         </ListView.View>
                     </ListView>
-                    <ListView x:Name="ListViewMorseDebug" HorizontalAlignment="Right" Height="380" VerticalAlignment="Bottom" Width="580" Margin="0,0,5,5" Grid.Column="1">
+                    <ListView x:Name="ListViewMorseDebug" Margin="5,294,5,5">
                         <ListView.View>
                             <GridView>
                                 <GridViewColumn/>
                             </GridView>
                         </ListView.View>
                     </ListView>
+                    <Button x:Name="ButtonSpeedDownStop" Content="Stop" HorizontalAlignment="Left" Margin="242,29,0,0" VerticalAlignment="Top" Width="115" Height="40" FontSize="16" Background="#FFFD8888" BorderBrush="{x:Null}" Click="ButtonSpeedDownStop_Click"/>
+                    <TextBox x:Name="TextBoxLetter1" Grid.Column="1" HorizontalAlignment="Left" Height="100" Margin="5,135,0,0" TextWrapping="Wrap" Text="J" VerticalAlignment="Top" Width="60" FontSize="48" FontFamily="Meiryo UI" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                    <TextBox x:Name="TextBoxLetter2" Grid.Column="1" HorizontalAlignment="Left" Height="100" Margin="70,135,0,0" TextWrapping="Wrap" Text="A" VerticalAlignment="Top" Width="60" FontSize="48" FontFamily="Meiryo UI" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                    <TextBox x:Name="TextBoxLetter3" Grid.Column="1" HorizontalAlignment="Left" Height="100" Margin="135,135,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Width="60" FontSize="48" FontFamily="Meiryo UI" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                    <TextBox x:Name="TextBoxLetter4" Grid.Column="1" HorizontalAlignment="Left" Height="100" Margin="200,135,0,0" TextWrapping="Wrap" Text="A" VerticalAlignment="Top" Width="60" FontSize="48" FontFamily="Meiryo UI" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                    <TextBox x:Name="TextBoxLetter5" Grid.Column="1" HorizontalAlignment="Left" Height="100" Margin="265,135,0,0" TextWrapping="Wrap" Text="A" VerticalAlignment="Top" Width="60" FontSize="48" FontFamily="Meiryo UI" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                    <TextBox x:Name="TextBoxLetter6" Grid.Column="1" HorizontalAlignment="Left" Height="100" Margin="330,135,0,0" TextWrapping="Wrap" Text="A" VerticalAlignment="Top" Width="60" FontSize="48" FontFamily="Meiryo UI" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                    <TextBox x:Name="TextBoxLetter7" Grid.Column="1" HorizontalAlignment="Left" Height="100" Margin="395,135,0,0" TextWrapping="Wrap" Text="/" VerticalAlignment="Top" Width="60" FontSize="48" FontFamily="Meiryo UI" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                    <TextBox x:Name="TextBoxLetter8" Grid.Column="1" HorizontalAlignment="Left" Height="100" Margin="460,135,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Width="60" FontSize="48" FontFamily="Meiryo UI" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                    <TextBox x:Name="TextBoxLetter9" Grid.Column="1" HorizontalAlignment="Left" Height="100" Margin="525,135,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="60" FontSize="48" FontFamily="Meiryo UI" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                    <Button x:Name="ButtonSpeedDown_Copy" Content="Start" HorizontalAlignment="Left" Margin="113,29,0,0" VerticalAlignment="Top" Width="232" Height="40" Click="ButtonSpeedDown_Click" FontSize="16" Background="#FFA1EAFF" BorderBrush="{x:Null}" Grid.Column="1"/>
+                    <Button x:Name="ButtonSpeedDownStop_Copy" Content="Stop" HorizontalAlignment="Left" Margin="350,29,0,0" VerticalAlignment="Top" Width="115" Height="40" FontSize="16" Background="#FFFD8888" BorderBrush="{x:Null}" Click="ButtonSpeedDownStop_Click" Grid.Column="1"/>
+                    <Label x:Name="labelSpeedResult1" Content="00 WPM" HorizontalAlignment="Left" Margin="5,114,0,0" VerticalAlignment="Top" Grid.Column="1" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Padding="5,0" Width="60"/>
+                    <Label x:Name="labelSpeedResult9" Content="00 WPM" HorizontalAlignment="Left" Margin="525,114,0,0" VerticalAlignment="Top" Grid.Column="1" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Padding="5,0" Width="60"/>
+                    <Label x:Name="labelSpeedResult8" Content="00 WPM" HorizontalAlignment="Left" Margin="460,114,0,0" VerticalAlignment="Top" Grid.Column="1" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Padding="5,0" Width="60"/>
+                    <Label x:Name="labelSpeedResult7" Content="00 WPM" HorizontalAlignment="Left" Margin="395,114,0,0" VerticalAlignment="Top" Grid.Column="1" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Padding="5,0" Width="60"/>
+                    <Label x:Name="labelSpeedResult6" Content="00 WPM" HorizontalAlignment="Left" Margin="330,114,0,0" VerticalAlignment="Top" Grid.Column="1" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Padding="5,0" Width="60"/>
+                    <Label x:Name="labelSpeedResult5" Content="00 WPM" HorizontalAlignment="Left" Margin="265,114,0,0" VerticalAlignment="Top" Grid.Column="1" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Padding="5,0" Width="60"/>
+                    <Label x:Name="labelSpeedResult4" Content="00 WPM" HorizontalAlignment="Left" Margin="200,114,0,0" VerticalAlignment="Top" Grid.Column="1" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Padding="5,0" Width="60"/>
+                    <Label x:Name="labelSpeedResult3" Content="00 WPM" HorizontalAlignment="Left" Margin="135,114,0,0" VerticalAlignment="Top" Grid.Column="1" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Padding="5,0" Width="60"/>
+                    <Label x:Name="labelSpeedResult2" Content="00 WPM" HorizontalAlignment="Left" Margin="70,114,0,0" VerticalAlignment="Top" Grid.Column="1" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Padding="5,0" Width="60"/>
                 </Grid>
             </TabItem>
             <TabItem x:Name="TabitemshvAlert" Header="shvAlert" Height="20" Width="100" Background="#FF93C3FF">
